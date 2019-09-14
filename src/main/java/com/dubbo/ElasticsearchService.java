@@ -7,6 +7,7 @@ public interface ElasticsearchService {
 
     String sayHello(String dubbo);
 
+    //发表文章
     ServerResponse addArticle(Article article);
 
     ServerResponse deleteArticle(String articleId);
