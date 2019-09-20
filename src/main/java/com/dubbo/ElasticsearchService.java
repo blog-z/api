@@ -5,8 +5,6 @@ import com.dubbo.entity.Article;
 
 public interface ElasticsearchService {
 
-    String sayHello(String dubbo);
-
     //发表文章
     ServerResponse addArticle(Article article);
 
@@ -14,5 +12,7 @@ public interface ElasticsearchService {
 
     ServerResponse updateArticle(Article article);
 
-    ServerResponse selectArticle(String userId,String articleText);
+    ServerResponse selectArticle(String articleText);
+
+    ServerResponse searchArticle(String userInputText,int pageNum);
 }
