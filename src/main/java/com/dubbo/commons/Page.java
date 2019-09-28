@@ -25,7 +25,6 @@ public class Page implements Serializable {
         this.pageNum=pageNum;
         this.pageSize=pageSize;
         this.totalRecord=totalRecord;
-        this.list=list;
 
         //计算totalPage
         if (totalRecord%pageSize==0){
@@ -34,6 +33,10 @@ public class Page implements Serializable {
         }else {
             this.totalPage=totalRecord/pageSize+1;
         }
+
+        this.list=list;
+
+
 
         //开始索引  数据库中索引是从0开始，所以pageNum-1;并且每次向前进pageSize
         this.startIndex=(pageNum-1)*pageSize;
@@ -61,6 +64,8 @@ public class Page implements Serializable {
             }
         }
     }
+
+    public Page(){}
 
     public long getPageNum() {
         return pageNum;
@@ -125,6 +130,8 @@ public class Page implements Serializable {
     public void setEnd(long end) {
         this.end = end;
     }
+
+
 }
 
 
