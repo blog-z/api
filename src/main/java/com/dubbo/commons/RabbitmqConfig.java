@@ -9,24 +9,29 @@ import java.util.concurrent.TimeoutException;
 
 public class RabbitmqConfig {
 
-    private static ConnectionFactory factory;
+    // RabbitMQ服务端地址
+    private static final String ADDRESS = "172.18.0.7";
+    // RabbitMQ默认监听端口为5672
+    private static final int PORT = 5672;
+    // 使用第一章创建的用户zhuqingchun进行登录
+    private static final String USERNAME = "zhuqingchun";
+    private static final String PASSWORD = "729512117";
 
-    private static Connection connection;
+    private static ConnectionFactory factory;
 
     private static Channel channel;
 
     static {
-        factory.setUsername("zhuqingchun");
-        factory.setPassword("729512117");
+        factory=new ConnectionFactory();
+        factory.setHost(ADDRESS);
+        factory.setPort(PORT);
+        factory.setUsername(USERNAME);
+        factory.setPassword(PASSWORD);
         factory.setVirtualHost("/");
-        factory.setHost("localhost");
-        factory.setPort(8080);
         try {
-            connection=factory.newConnection();
-            channel=connection.createChannel();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
+            Connection connection = factory.newConnection();
+            channel= connection.createChannel();
+        } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
     }

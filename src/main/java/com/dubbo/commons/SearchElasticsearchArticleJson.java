@@ -8,14 +8,16 @@ public class SearchElasticsearchArticleJson implements Serializable {
     private String article_user_id;
     private String article_title;
     private String article_content;
+    private String article_heat;
     private String create_time;
     private String update_time;
 
-    public SearchElasticsearchArticleJson(String article_id, String article_user_id, String article_title, String article_content, String create_time, String update_time) {
+    public SearchElasticsearchArticleJson(String article_id, String article_user_id, String article_title, String article_content,String article_heat, String create_time, String update_time) {
         this.article_id = article_id;
         this.article_user_id = article_user_id;
         this.article_title = article_title;
         this.article_content = article_content;
+        this.article_heat=article_heat;
         this.create_time = create_time;
         this.update_time = update_time;
     }
@@ -54,6 +56,14 @@ public class SearchElasticsearchArticleJson implements Serializable {
 
     public void setArticle_content(String article_content) {
         this.article_content = article_content;
+    }
+
+    public String getArticle_heat() {
+        return article_heat;
+    }
+
+    public void setArticle_heat(String article_heat) {
+        this.article_heat = article_heat;
     }
 
     public String getCreate_time() {

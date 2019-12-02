@@ -6,6 +6,8 @@ import com.dubbo.entity.User;
 import org.apache.commons.lang3.StringUtils;
 import redis.clients.jedis.JedisCluster;
 
+import java.util.List;
+
 public class JedisUtil {
 
     //key value 加入redis
@@ -100,6 +102,24 @@ public class JedisUtil {
             JedisCluster jedisCluster= RedisPoolConfig.getJedisCluster();
             return jedisCluster.del(key);
         }
+    }
+
+    //redis有序集合list
+    public static void setList(String key,String value){
+        JedisCluster jedisCluster= RedisPoolConfig.getJedisCluster();
+        jedisCluster.lpush(key,value);
+    }
+
+    //得到list
+    public static List<String> getList(String key){
+        JedisCluster jedisCluster= RedisPoolConfig.getJedisCluster();
+        return jedisCluster.lrange(key,0,-1);
+    }
+
+    //删除list中指定元素
+    public static Long delList(String key,String value){
+        JedisCluster jedisCluster= RedisPoolConfig.getJedisCluster();
+        return jedisCluster.lrem(key,0,value);
     }
 
 

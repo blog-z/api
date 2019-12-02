@@ -13,5 +13,6 @@ public class Const {
         String BeforeUserKeyId="BeforeUserKeyId";
         String BeforeArticleKeyId="BeforeArticleKeyId";
         String BeforeCommentKeyId="BeforeCommentKeyId";
+        String BeforeUserKeyForArticleId="BeforeUserKeyForArticleId";
     }
 }

@@ -12,22 +12,21 @@ public class Article implements Serializable {
 
     private String articleContent;
 
+    private Integer articleHeat;
+
     private Date createTime;
 
     private Date updateTime;
 
-    public Article(String articleId, String articleUserId, String articleTitle, String articleContent, Date createTime, Date updateTime) {
+    public Article(String articleId, String articleUserId, String articleTitle, String articleContent, Integer articleHeat, Date createTime, Date updateTime) {
 //        super(articleId);
         this.articleId = articleId;
         this.articleUserId = articleUserId;
         this.articleTitle = articleTitle;
         this.articleContent = articleContent;
+        this.articleHeat = articleHeat;
         this.createTime = createTime;
         this.updateTime = updateTime;
-    }
-
-    public Article() {
-        super();
     }
 
     public String getArticleId() {
@@ -60,6 +59,14 @@ public class Article implements Serializable {
 
     public void setArticleContent(String articleContent) {
         this.articleContent = articleContent == null ? null : articleContent.trim();
+    }
+
+    public Integer getArticleHeat() {
+        return articleHeat;
+    }
+
+    public void setArticleHeat(Integer articleHeat) {
+        this.articleHeat = articleHeat;
     }
 
     public Date getCreateTime() {
